@@ -7,7 +7,15 @@
 
 <!-- badges: end -->
 
-The goal of t4dse is to …
+The goal of `t4dse` is to share a collection of tools developed during
+the writing of the research project at [ITM](https://www.itg.be/) /
+[IPK](https://instituciones.sld.cu/ipk/) /
+[UGent](https://www.ugent.be/). This r package contains functions and
+data for disease stratification and intervention evaluation.
+
+This will help data science experts and epidemiologist with the
+computation of epidemiological statistics, like the creation of
+endemic/epidemic channels using surveillance data.
 
 ## Installation
 
@@ -16,7 +24,7 @@ You can install the development version of t4dse from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("wbr/t4dse")
+devtools::install_github("wbal/t4dse")
 ```
 
 ## Example
@@ -56,16 +64,40 @@ library(t4dse)
 #> 12 2019     12 161.9183 150.72073 182.9142
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Plotting the endemic channel:
 
 ``` r
-
-  plot( data14a19[data14a19$year==2019,]$idx, data14a19[data14a19$year==2019,]$cases
+  time_month = data14a19[data14a19$year==2019,]$idx
+  cases = data14a19[data14a19$year==2019,]$cases
+  plot( x = time_month, y = cases 
         , ylim = c( min(endchan2019$supramin,na.rm = TRUE ),  max(endchan2019$inframax,na.rm = TRUE ))  )
-  lines( data14a19[data14a19$year==2019,]$idx,y= endchan2019$supramin, col="blue" )
-  lines( data14a19[data14a19$year==2019,]$idx,y= endchan2019$inframax , col="red")
-  lines(data14a19[data14a19$year==2019,]$idx,y= endchan2019$median , col="orange")
+  lines( time_month,y= endchan2019$supramin, col="blue" )
+  lines( time_month,y= endchan2019$inframax , col="red")
+  lines( time_month,y= endchan2019$median , col="orange")
 ```
 
-<img src="man/figures/README-fig-endemicchannel-plot-1.png" width="100%" />
+<div class="figure">
+
+<img src="man/figures/README-fig-endemicchannel-plot-1.png" alt="Endemic Channel, 2014-2019." width="100%" />
+<p class="caption">
+
+Endemic Channel, 2014-2019.
+</p>
+
+</div>
+
+## References
+
+- Baldoquín Rodríguez, W.; Mirabal, M.; Van der Stuyft, P.; Gómez
+  Padrón, T.; Fonseca, V.; Castillo, R.M.; Monteagudo Díaz, S.; Baetens,
+  J.M.; De Baets, B.; Toledo Romaní, M.E.; Vanlerbeghe, V. . The
+  Potential of Surveillance Data for Dengue Risk Mapping: An Evaluation
+  of Different Approaches in Cuba. Trop. Med. Infect. Dis. 2023, 8, 230.
+  <https://doi.org/10.3390/tropicalmed8040230>
+
+- Baldoquín Rodríguez, W.; Gómez Padrón, T.; Valdés García, L.E.;
+  Rodríguez Valdés, A.; Castillo R.M.; Del Pozo de los Reyes, D.;
+  Baetens, J.M.; De Baets, B.; Toledo Romaní, M.E.; Vanlerbeghe, V.
+  Effectiveness of a multicomponent dengue prevention strategy targeting
+  transmission hotspots in Santiago de Cuba, Cuba, 2015-2020 \[in
+  review\]
