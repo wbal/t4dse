@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# t4dse
+# t4dse - Tools for Data Science and Epidemiology
 
 <!-- badges: start -->
 

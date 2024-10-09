@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# t4dse
+# t4dse - Tools for Data Science and Epidemiology
 
 <!-- badges: start -->
 <!-- badges: end -->
