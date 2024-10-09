@@ -1,0 +1,64 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# t4dse
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of t4dse is to ...
+
+## Installation
+
+You can install the development version of t4dse from [Github](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("wbr/t4dse")
+```
+
+## Example
+
+This is a basic example which shows you how to create an endemic channel for 2019 using `t4dse::endemicchannel()`. This requires a data frame containing monthly cases from 2014 to 2019:
+
+```{r example}
+library(t4dse)
+## basic example code
+
+  set.seed(1)
+  x=seq(0,12*6-1)
+  y=100 + 20*cos(2*pi*x/12) + rnorm(n = length(x),mean = 50,sd = 40)
+  y[y<0] <- 0
+  data14a19 <- data.frame( idx=seq(1,12*6), year=rep(2014:2019, each=12 ), month=rep(1:12, 6), cases=y )
+
+  endchan2019 <- endemicchannel(data =data14a19
+                           ,yearnow = 2019,period = "month"
+                           ,.var = "cases"
+                           ,nyears = 5)
+  
+ endchan2019  
+```
+
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
+```{r fig-endemicchannel-plot}
+
+  plot( data14a19[data14a19$year==2019,]$idx, data14a19[data14a19$year==2019,]$cases
+        , ylim = c( min(endchan2019$supramin,na.rm = TRUE ),  max(endchan2019$inframax,na.rm = TRUE ))  )
+  lines( data14a19[data14a19$year==2019,]$idx,y= endchan2019$supramin, col="blue" )
+  lines( data14a19[data14a19$year==2019,]$idx,y= endchan2019$inframax , col="red")
+  lines(data14a19[data14a19$year==2019,]$idx,y= endchan2019$median , col="orange")
+```
+
