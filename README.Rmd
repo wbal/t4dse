@@ -24,7 +24,7 @@ This will help data science experts and epidemiologist with the computation of e
 
 ## Installation
 
-You can install the development version of t4dse from [Github](https://github.com/) with:
+You can install the development version of `t4dse` from [Github](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -50,7 +50,7 @@ library(t4dse)
                            ,.var = "cases"
                            ,nyears = 5)
   
- endchan2019  
+ endchan2019
 ```
 
 
