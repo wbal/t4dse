@@ -2,7 +2,7 @@ Package: t4dse
 Type: Package
 Title: Tools for Data Science and Epidemiology
 Version: 0.1.0
-Author: W Baldoquin [aut, cre]
+Author: W Baldoquin [aut, cre] (<https://orcid.org/0000-0001-9231-7109>)
 Maintainer: W Baldoquin <wbaldoquin@gmail.com>
 Description: Collection of tools for epidemiological analysis. 
     Enables data science experts and epidemiologist the computation of 
