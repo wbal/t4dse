@@ -60,10 +60,12 @@ endemicchannel <- function(data, yearnow, period ="month", .var="cases", nyears 
   )
 
 
-  data.frame( year = yearnow
+  df<-  data.frame( year = yearnow
               , period = inframax[[period]]
               , median = median_[[y]]
               , supramin = supramin[[y]]
               , inframax = inframax[[y]]
   )
+  names(df)[2]<-period
+  df
 }
